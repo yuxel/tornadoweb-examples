@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- this is the simplified version of Facebook's example -->
+<html>
+    <head>
+        <title>Pyist - Social</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" media="screen" type="text/css" href="{{ static_url('style.css') }}">
+    </head>
+    <body>
+      <div id="input" class="toCenter">
+
+        <div id="logo" class="toLeft"></div>
+
+        <div class="toLeft">
+            <form action="/new" method="post" id="messageform">
+                <div>
+                    <input type="text" name="body" id="message"/> 
+                    <input type="submit" id="submitButton" value="Send!"/>
+                </div> 
+            </form>
+        </div> <!-- .toLeft -->
+      </div> <!-- #input -->
+
+      <div class="clear"></div>
+
+      <div id="inbox" class="toCenter">
+        <!-- print existing messages -->
+        {% for message in messages %}
+          {% include "message.html" %}
+        {% end %}
+      </div>
+
+        <script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>
+        <script src="{{ static_url("chat.js") }}" type="text/javascript"></script>
+    </body>
+</html>
